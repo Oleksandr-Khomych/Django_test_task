@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 from django.template import loader
 
@@ -8,8 +8,11 @@ from .models import Menu
 
 
 def index(request):
+    info = HttpRequest.get_full_path(request)
+    language = request.GET.get("lang", "en")
+    print(f'\n\nlanguage = {language}\n\n')
+    print(f'info = {info} !!!')
     root_menu_items = Menu.objects.filter(parent_element=None)
-    print(f'root_menu_items = {root_menu_items}')
     submenu_items = Menu.objects.exclude(parent_element=None)
     template = loader.get_template('menu/index.html')
     context = {
