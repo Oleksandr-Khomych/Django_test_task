@@ -1,2 +1,6 @@
 .idea/
 venv/
+db.sqlite3
+mysite/__pycache__/
+mysite/menu/__pycache__/
+mysite/menu/migrations/
