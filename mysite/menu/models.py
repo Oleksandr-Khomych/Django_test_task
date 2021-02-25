@@ -44,7 +44,7 @@ class Translate(models.Model):
 # t = Translate(menu_id=Menu.objects.get(menu_id=4), language=Language.objects.get(language="eng"), text="Author1")
 # t = Translate(menu_id=Menu.objects.get(menu_id=5), language=Language.objects.get(language="eng"), text="Author2")
 # t = Translate(menu_id=Menu.objects.get(menu_id=6), language=Language.objects.get(language="eng"), text="Author3")
-#
+
 # t = Translate(menu_id=Menu.objects.get(menu_id=1), language=Language.objects.get(language="ua"), text="Адмін Панель")
 # t = Translate(menu_id=Menu.objects.get(menu_id=2), language=Language.objects.get(language="ua"), text="Блог")
 # t = Translate(menu_id=Menu.objects.get(menu_id=3), language=Language.objects.get(language="ua"), text="Автори")

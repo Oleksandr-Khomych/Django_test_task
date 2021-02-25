@@ -33,9 +33,3 @@ def index(request):
         'translates': translates,
     }
     return HttpResponse(template.render(context, request))
-
-
-# def index(request):
-#     menu_item_list = Menu.objects.all()
-#     context = {'menu_item_list': menu_item_list}
-#     return render(request, 'menu/index.html', context)
