@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'menu/css/button_style.css' %}">
+    <script src="{% static 'menu/js/button.js' %}"></script>
+
+</head>
+<body>
+{% for menu_item in root_menu_items %}
+<a href="/menu/{{ menu_item.url }}/">{{ menu_item.menu_ukr_text }} {{menu_item.menu_eng_text}}</a>
+{% endfor %}
+<br><br>
+{% for menu_item in submenu_items %}
+<a href="/menu/{{ menu_item.url }}/">{{ menu_item.menu_ukr_text }} {{menu_item.menu_eng_text}}</a>
+{% endfor %}
+
+<h1>Hello bitch!</h1>
+<br><br>
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+{% if root_menu_items %}
+
+<div class="menu">
+    <h2>Multi-Level Menu</h2>
+<ul>
+    {% for menu_item in root_menu_items %}
+        <li><a href="{{ menu_item.url }}/">{{ menu_item.menu_ukr_text }} {{menu_item.menu_eng_text}}</a></li>
+
+        {% for sub_item in submenu_items %}
+            <ul class="submenu">
+                {% if sub_item.parent_element == menu_item.menu_id %}
+                    <li><a href="{{ sub_item.url }}/">{{ sub_item.menu_ukr_text }} {{sub_item.menu_eng_text}}</a></li>
+                {% endif %}
+            </ul>
+
+
+
+
+        {% endfor %}
+
+        {% endfor %}
+
+
+
+
+
+    </ul>
+{% else %}
+    <p>No menu items are available.</p>
+{% endif %}
+</div>
+<!-- текст-->
+</body>
+</html>
